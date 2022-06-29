@@ -1,5 +1,5 @@
 let houses = JSON.parse(localStorage.getItem("houses"))
-  ? JSON.parse(localStorage.getItem(houses))
+  ? JSON.parse(localStorage.getItem("houses"))
   : [
       {
         img: "https://i.postimg.cc/SQr1WVRV/apartment-g4cdf4d2cd-1280.jpg",
@@ -123,15 +123,31 @@ let houses = JSON.parse(localStorage.getItem("houses"))
       },
     ];
 
-function showItems(items) {
-  document.querySelector("#clothes").innerHTML = "";
-  items.forEach((item, i) => {
-    document.querySelector(
-      "#clothes"
-    ).innerHTML += ` <img src=${item.image} style="width:200px; height:200px; padding:20px; "><div>${item.title}</div>`;
+let asc = true;
+const homesContainer = document.querySelector("#TableItems");
+function showHomes(houses) {
+  homesContainer.innerHTML = "";
+  console.log(houses);
+  houses.forEach((home) => {
+    homesContainer.innerHTML += `
+<tr>
+    <td>${home.img}</td>
+    <td>${home.Day}</td>
+    <td>${home.list}</td>
+    <td>${home.Price}</td>
+    <td>${home.title}</td>
+    <td>${home.Location}</td>
+   ${home.size} 
+ ${home.bedroom}
+     ${home.baths} 
+</tr>
+
+
+
+  `;
   });
 }
-console.log(houses);
-
-localStorage.setItem("list", JSON.stringify(houses));
-showHouses(houses);
+// console.log(houses);
+showHomes(houses);
+// localStorage.setItem("list", JSON.stringify(houses));
+// showHouses(houses);
