@@ -172,6 +172,37 @@ function addItem() {
 
 document.querySelector("#addItems").addEventListener("click", addItem);
 
+function filter(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#TableItems").innerHTML = "";
+    let specificView = houses.filter((home) => home.size === FilterOption);
+    specificView.forEach((home) => {
+      document.querySelector("#TableItems").innerHTML += `
+      <tr>
+      <td scope="col">${home.Id}</td>
+      <td scope="col">${home.title}</td>
+      <td scope="col">${home.Location}</td>
+      <td scope="col">${home.bedroom}</td>
+      <td scope="col">${home.baths}</td>
+      <td scope="col">${home.size}</td>
+      <td scope="col">${home.list}</td>
+      <td scope="col">${home.img}</td>
+      <td scope="col">${home.Price}</td>
+      <td scope="col">${home.Day}</td>
+    <td><i class="fa-solid fa-folder-plus"></i></td>
+    <td><i class="fa-solid fa-trash-can" onclick="delItem(${home.Id})"></i></td>
+    <td><i class="fa-solid fa-pen-to-square" ></i></td>
+      </tr>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
+}
+
 // Delete An Item
 
 function delItem(Id) {
