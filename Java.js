@@ -200,18 +200,18 @@ console.log(houses);
 localStorage.setItem("list", JSON.stringify(houses));
 showHouses(houses);
 
-filter = () => {
-  let FilterOption = document.querySelector("#sizelist").value;
+function filter2(event) {
+  let FilterOption = event.target.value;
   if (FilterOption !== "all") {
-    console.log(FilterOption);
-    document.querySelector("#houses").innerHTML = "";
-    let specificView = houses.filter((home) => home.size == FilterOption);
+    // console.log(FilterOption);
+    document.querySelector("#list").innerHTML = "";
+    let specificView = houses.filter2((home) => home.list === FilterOption);
     specificView.forEach((home) => {
-      document.querySelector("#houses").innerHTML += `
+      document.querySelector("#list").innerHTML += `
        <div class="box-container">
     <div class="box">
     <div class="image-container">
-    <img src= ${houses.img}>
+    <img src= ${home.img}>
     <div class="info">
     <h3> ${home.Day}</h3>
     <h3> ${home.list}</h3>
@@ -243,4 +243,52 @@ filter = () => {
   } else {
     display();
   }
-};
+}
+
+localStorage.setItem("list", JSON.stringify(houses));
+showHouses(houses);
+
+function filter(event) {
+  let FilterOption = event.target.value;
+  if (FilterOption !== "all") {
+    // console.log(FilterOption);
+    document.querySelector("#list").innerHTML = "";
+    let specificView = houses.filter((home) => home.size === FilterOption);
+    specificView.forEach((home) => {
+      document.querySelector("#list").innerHTML += `
+       <div class="box-container">
+    <div class="box">
+    <div class="image-container">
+    <img src= ${home.img}>
+    <div class="info">
+    <h3> ${home.Day}</h3>
+    <h3> ${home.list}</h3>
+    </div>
+    </div>
+    <div class="content">
+    <div class="price">
+    <h3>${home.Price}</h3>
+    <a href="#" class="fas fa-heart"></a>
+    <a href="#" class="fas fa-envelope"></a>
+    <a href="#" class="fas fa-phone"></a>
+    </div>
+    <div class="location">
+    <h3>${home.title}</h3>
+    <p> ${home.Location}</p>
+    </div>
+    <div class="details">
+    <h3><i class="fas fa-expand"></i>${home.size} </h3>
+    <h3><i class="fas fa-bed"></i> ${home.bedroom} </h3>
+    <h3><i class="fas fa-bath"></i>${home.baths} </h3>
+</div>
+
+</div>
+ </div>
+</div>
+        `;
+      console.log(specificView);
+    });
+  } else {
+    display();
+  }
+}

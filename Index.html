@@ -44,53 +44,29 @@
         <h3>find your perfect home </h3>
   
   
+        <select id="Typelist" onchange="filter2(event)">
+         <option value="all">Select option</option>
+                    <option value="Rent">Rental</option>
+                    <option value="Sale">Sale</option>
+                  </select>
         
-        <div class="options ">
-          <select onchange="priceSort(event)">
-            <option value="asc">Price Ascending</option>
-            <option value="desc">Price Decending</option>
-          </select>
-          
-          <select onchange="nameSort(event)">
-            <option value="asc">Name Ascending</option>
-            <option value="desc">Name Decending</option>
-          </select>
-        </div>
-      </div>
 
-      <select onchange="filter(event)" id="sizelist">
-             <option value="">Size</option>
+      <select id="sizelist "onchange="filter(event)">
+             <option selected>Size</option>
              <option value="6000sqft">6000sqft</option>
               <option value="5000sqft">5000sqft</option>
                <option value="4800sqft">4800sqft</option>
                 <option value="4500sqft">4500sqft</option>
                     <option value="4000sqft">4000sqft</option>
                         <option value="3500sqft">3500sqft</option>
-                          <option value="3200sqft">3200sqft</option>
+                          <option value="3200 Sqft">3200sqft</option>
                             <option value="2000sqft">2000sqft</option>
-                       
-                        
-
 
           </select>
         </div>
       </div>
-     
 
-
-    <select>
-         <option value="all">Select option</option>
-                    <option value="all">all</option>
-                  
-                
-                
-                    
-                  </select>
-      <!-- form-group -->
-        <!-- <div class="col-20">
- <button type="submit" class="btn button size-sm">
- Search</button>
-</div>  -->
+    
 </div>
          </form>           
     

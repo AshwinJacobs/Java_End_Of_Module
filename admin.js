@@ -183,3 +183,53 @@ function delItem(Id) {
 }
 
 // Edit Item
+
+// Edit Function
+function editItem(id) {
+  document.querySelector(`#Title${id}`).disabled = false;
+  document.querySelector(`#Location${id}`).disabled = false;
+  document.querySelector(`#Bedrooms${id}`).disabled = false;
+  document.querySelector(`#Bathrooms${id}`).disabled = false;
+  document.querySelector(`#Size${id}`).disabled = false;
+  document.querySelector(`#Type${id}`).disabled = false;
+  document.querySelector(`#Img${id}`).disabled = false;
+  document.querySelector(`#Price${id}`).disabled = false;
+  document.querySelector(`#Listed${id}`).disabled = false;
+}
+// function saveItem(id) {}
+// showTable(houses);
+// function updateItem(id) {
+//   const #Listed = houses.find((#Listed) => {
+//     return Listed.id == id;
+//   });
+//   const titleBox = document.querySelector(`#Title${id}`);
+//   const locationBox = document.querySelector(`#Location${id}`);
+//   const bedroomsBox = document.querySelector(`#Bedrooms${id}`);
+//   const bathroomsBox = document.querySelector(`#Bathrooms${id}`);
+//   const areaBox = document.querySelector(`#Size${id}`);
+//   const typeBox = document.querySelector(`#Type${id}`);
+//   const imgBox = document.querySelector(`#Img${id}`);
+//   const priceBox = document.querySelector(`#Price${id}`);
+//   const listingBox = document.querySelector(`#Listed${id}`);
+//   document.querySelector(`#Title${id}`).disabled = true;
+//   document.querySelector(`#Location${id}`).disabled = true;
+//   document.querySelector(`#Bedrooms${id}`).disabled = true;
+//   document.querySelector(`#Bathrooms${id}`).disabled = true;
+//   document.querySelector(`#Size${id}`).disabled = true;
+//   document.querySelector(`#Type${id}`).disabled = true;
+//   document.querySelector(`#Img${id}`).disabled = true;
+//   document.querySelector(`#Price${id}`).disabled = true;
+//   document.querySelector(`#Listed${id}`).disabled = true;
+//   listings.title = titleBox.value;
+//   listings.location = locationBox.value;
+//   listings.bedrooms = bedroomsBox.value;
+//   listings.bathrooms = bathroomsBox.value;
+//   listings.garage = garageBox.value;
+//   listings.area = areaBox.value;
+//   listings.type = typeBox.value;
+//   listings.img = imgBox.value;
+//   listings.price = priceBox.value;
+//   listings.listing = listingBox.value;
+//   localStorage.setItem("houses", JSON.stringify(houses));
+// }
+// showTable(houses);
