@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://kit.fontawesome.com/53a149f81a.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +37,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add your Listing</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Add your Property</h5>
               <button
                 type="button"
                 class="btn-close"
@@ -45,8 +46,8 @@
               ></button>
             </div>
             <div class="modal-body">
-                <form onsubmit="event.preventDefault(); addItem();">
-              <div class="mb-3">
+                <form onsubmit="event.preventDefault();">
+                    <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label"
                   >Title</label
                 >
@@ -76,17 +77,29 @@
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
-                <option>Any</option>
+                <option>5</option>
+               </select>
+              </div>
+
+               <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Bathrooms</label>
+               <select id="Bathrooms">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
                </select>
               </div>
               
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label"
-                  >location</label>
+                  >Size</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="Area"
+                  id="Size"
                   placeholder=""
                 />
               </div>
@@ -121,12 +134,22 @@
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label"
                   >Listing</label>
-               <select  id="Listing">
+               <select  id="Listed">
                 <option>For Rent</option>
                 <option>For Sale</option>
                </select>
               </div>
-                <button type="submit" class="btn btn-primary" >
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Day</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Day"
+                  placeholder=""
+                />
+              </div>
+                <button type="submit" id="addItems" class="btn btn-primary" >
                 Save changes
               </button>
             </form>
@@ -149,18 +172,22 @@
  <table class="table">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+
+      <th scope="col">id</th>
       <th scope="col">Title</th>
       <th scope="col">Location</th>
       <th scope="col">Bedrooms</th>
       <th scope="col">Bathrooms</th>
-      <th scope="col">Location</th>
+      <th scope="col">Size</th>
       <th scope="col">Type</th>
       <th scope="col">Img</th>
       <th scope="col">Price</th>
-      <th scope="col">Listing</th>
+      <th scope="col">Listed</th>
+      <th scope="col">Add</th>
+       <th scope="col">Delete</th>
+       <th scope="col">Edit </th>
     </tr>
-    <tr></tr>
+    
   </thead>
   <tbody class="table-group-divider" id="TableItems">
   </tbody>

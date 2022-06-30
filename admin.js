@@ -6,36 +6,36 @@ let houses = JSON.parse(localStorage.getItem("houses"))
         title: "Pacific Plaza Resort",
         Location: "California",
         size: "4000sqft",
-        bedroom: "4 beds",
-        baths: "3 baths",
+        bedroom: "4 bedrooms",
+        baths: "3 bathrooms",
         Price: "R5,780,000",
         Day: "7 Days Ago",
         list: "Sale",
-        ID: "1",
+        Id: "1",
       },
       {
         img: "https://i.postimg.cc/qMNczG3N/apartment-ga49b12eae-1280.jpg",
         title: "Modern Apartment",
         Location: "Los Angeles",
         size: "3000sqft",
-        bedroom: "1 beds",
-        baths: "1 bath",
+        bedroom: "1 bedroom",
+        baths: "1 bathroom",
         Price: "R1500/night",
         Day: "6 Days Ago",
         list: "Rent",
-        ID: "2",
+        Id: "2",
       },
       {
         img: "https://i.postimg.cc/TY5mRYzm/apartment-ge5618e4b2-1280.jpg",
         title: "The Elet Hotel",
         Location: "Villa in South Lake Tahoe, CA",
         size: "2000sqft",
-        bedroom: "2 beds",
-        baths: "2 baths",
+        bedroom: "2 bedrooms",
+        baths: "2 bathrooms",
         Price: "R1200/Night",
         Day: "2 Days Ago",
         list: "Rent",
-        ID: "3",
+        Id: "3",
       },
       {
         img: "https://i.postimg.cc/QdkFtB0B/dining-room-g66d6bcd8b-1280.jpg",
@@ -47,7 +47,7 @@ let houses = JSON.parse(localStorage.getItem("houses"))
         Price: "R5,500,000",
         Day: "3 Days Ago",
         list: "Sale",
-        ID: "4",
+        Id: "4",
       },
       {
         img: "https://i.postimg.cc/HLYtz8x5/home-gab8dae866-1280.jpg",
@@ -59,7 +59,7 @@ let houses = JSON.parse(localStorage.getItem("houses"))
         Price: "R3,800,000",
         Day: "1 Day Ago",
         list: "Sale",
-        ID: "5",
+        Id: "5",
       },
       {
         img: "https://i.postimg.cc/2yLNkKmr/room-g91f4d9196-1280.jpg",
@@ -71,7 +71,7 @@ let houses = JSON.parse(localStorage.getItem("houses"))
         Price: "R8,000,000",
         Day: "2 Days Ago",
         list: "Sale",
-        ID: "6",
+        Id: "6",
       },
       {
         img: "https://i.postimg.cc/yYNSPhjB/dining-room-g34ef3175c-1280.jpg",
@@ -83,7 +83,7 @@ let houses = JSON.parse(localStorage.getItem("houses"))
         Price: "R4,500,000",
         Day: "4 Days Ago",
         list: "Sale",
-        ID: "7",
+        Id: "7",
       },
       {
         img: "https://i.postimg.cc/wjqpXFhk/interior-g0254e42a6-1280.jpg",
@@ -95,59 +95,91 @@ let houses = JSON.parse(localStorage.getItem("houses"))
         Price: "R25,000,000",
         Day: "5 Days Ago",
         list: "Sale",
-        ID: "8",
+        Id: "8",
       },
       {
         img: "https://i.postimg.cc/VNZXF72Q/indoors-g0d1fa7a7d-1280.jpg",
         title: "Modern Apartment",
         Location: "Jogeshwari West",
         size: "3200 Sqft",
-        bedroom: "3 Beds",
-        baths: "2 Baths",
+        bedroom: "3 Bedrooms",
+        baths: "2 Bathrooms",
         Price: "R5000/Night",
         Day: "7 Days Ago",
         list: "Rent",
-        ID: "9",
+        Id: "9",
       },
       {
         img: "https://i.postimg.cc/7hrgd59q/kitchen-living-room-g6d3db2838-1280.jpg",
         title: "Modern Apartment",
         Location: "Jogeshwari West, Mumbai, India",
         size: "3500 Sqft",
-        bedroom: "3 Beds",
-        baths: "3 Baths",
+        bedroom: "3 Bedrooms",
+        baths: "3 Bathrooms",
         Price: "R3,550/Night",
         Day: "1 Day Ago",
         list: "Rent",
-        ID: "10",
+        Id: "10",
       },
     ];
+const housesContainer = document.querySelector("#TableItems");
 
-let asc = true;
-const homesContainer = document.querySelector("#TableItems");
 function showHomes(houses) {
-  homesContainer.innerHTML = "";
+  housesContainer.innerHTML = "";
   console.log(houses);
   houses.forEach((home) => {
-    homesContainer.innerHTML += `
-<tr>
-    <td>${home.img}</td>
-    <td>${home.Day}</td>
-    <td>${home.list}</td>
-    <td>${home.Price}</td>
-    <td>${home.title}</td>
-    <td>${home.Location}</td>
-   ${home.size} 
- ${home.bedroom}
-     ${home.baths} 
-</tr>
+    housesContainer.innerHTML += `
 
-
-
+     <tr>
+      <td scope="col">${home.Id}</td>
+      <td scope="col">${home.title}</td>
+      <td scope="col">${home.Location}</td>
+      <td scope="col">${home.bedroom}</td>
+      <td scope="col">${home.baths}</td>
+      <td scope="col">${home.size}</td>
+      <td scope="col">${home.list}</td>
+      <td scope="col">${home.img}</td>
+      <td scope="col">${home.Price}</td>
+      <td scope="col">${home.Day}</td>
+    <td><i class="fa-solid fa-folder-plus"></i></td>
+    <td><i class="fa-solid fa-trash-can" onclick="delItem(${home.Id})"></i></td>
+    <td><i class="fa-solid fa-pen-to-square" ></i></td>
+      </tr>
   `;
   });
 }
-// console.log(houses);
 showHomes(houses);
-// localStorage.setItem("list", JSON.stringify(houses));
-// showHouses(houses);
+
+// Adding new items
+function addItem() {
+  const newHouses = {
+    title: document.querySelector("#Title").value,
+    Location: document.querySelector("#Location").value,
+    bedroom: document.querySelector("#Bedrooms").value,
+    bathroom: document.querySelector("#Bathrooms").value,
+    size: document.querySelector("#Size").value,
+    type: document.querySelector("#Type").value,
+    Price: document.querySelector("#Price").value,
+    img: document.querySelector("#Img ").value,
+    list: document.querySelector("#Listed").value,
+    Day: document.querySelector("#Day").value,
+    Id: houses.length + 1,
+  };
+  houses.push(newHouses);
+  localStorage.setItem("houses", JSON.stringify(houses));
+  showHomes(houses);
+}
+
+document.querySelector("#addItems").addEventListener("click", addItem);
+
+// Delete An Item
+
+function delItem(Id) {
+  houses = houses.filter((home) => {
+    return home.Id !== Id;
+  });
+  localStorage.setItem("houses", JSON.stringify(houses));
+  showHomes(houses);
+}
+
+// Edit Item

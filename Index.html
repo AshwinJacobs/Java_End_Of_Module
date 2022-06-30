@@ -19,7 +19,7 @@
     <!-- header section starts  -->
 
     <header>
-      <a href="#" class="logo"><span>Ashwin's <span></span></span>Estate</a>
+      <a href="#" class="logo"><span>Ashwin's <span></span></span>Estates</a>
 
       <nav class="navbar">
         <a href="#home">home</a>
@@ -43,30 +43,50 @@
        
         <h3>find your perfect home </h3>
   
-      <input type="text" oninput="textSearch(event)" placeholder="Title" />
-      <select onchange="Filter(event)">
+  
+        
+        <div class="options ">
+          <select onchange="priceSort(event)">
+            <option value="asc">Price Ascending</option>
+            <option value="desc">Price Decending</option>
+          </select>
+          
+          <select onchange="nameSort(event)">
+            <option value="asc">Name Ascending</option>
+            <option value="desc">Name Decending</option>
+          </select>
+        </div>
+      </div>
+
+      <select onchange="filter(event)" id="sizelist">
+             <option value="">Size</option>
+             <option value="6000sqft">6000sqft</option>
+              <option value="5000sqft">5000sqft</option>
+               <option value="4800sqft">4800sqft</option>
+                <option value="4500sqft">4500sqft</option>
+                    <option value="4000sqft">4000sqft</option>
+                        <option value="3500sqft">3500sqft</option>
+                          <option value="3200sqft">3200sqft</option>
+                            <option value="2000sqft">2000sqft</option>
+                       
+                        
+
+
+          </select>
+        </div>
+      </div>
+     
+
+
+    <select>
          <option value="all">Select option</option>
                     <option value="all">all</option>
-                    <option value="Price">Price</option>
-                    <option value="location">Location</option>
-                    <option value="Type">Rent</option>
-                    <option value="Type">Sale</option>
-                    <option value="size">Size</option>
+                  
+                
+                
+                    
                   </select>
-
-                  <div class="options">
-      <select onchange="priceSort(event)">
-        <option value="asc">Price Ascending</option>
-        <option value="desc">Price Decending</option>
-      </select>
-      
-      <select onchange="nameSort(event)">
-        <option value="asc">Name Ascending</option>
-        <option value="desc">Name Decending</option>
-      </select>
-    </div>
- </div>
-        <!-- form-group -->
+      <!-- form-group -->
         <!-- <div class="col-20">
  <button type="submit" class="btn button size-sm">
  Search</button>
@@ -84,15 +104,15 @@
     <section class="featured" id="featured">
       <h1 class="heading"><span>featured</span> properties</h1>
       
-      
       <div id="list"></div>
+
     </section>
 
     <!-- featured section ends -->
 
     <!-- footer section starts  -->
 
-    <section class="footer">
+    <section id="contact" class="footer">
       <div class="footer-container">
         <div class="box-container">
           <div class="box">
