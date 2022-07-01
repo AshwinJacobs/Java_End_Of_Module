@@ -12,7 +12,7 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/admin.css">
+    <link rel="stylesheet" href="/Styles/admin.css">
   </head>
   <body>
     <a href="./Index.html" class="fas fa-user"></a>
@@ -27,8 +27,11 @@
         Add Property
     </button>
 
-    <select id="sizelist "onchange="filter(event)">
-             <option selected>Size</option>
+<!-- Filtering -->
+    <!-- By -->
+    
+ <select id="sizelist "onchange="filter(event)">
+             <option selected value="Size">Size</option>
              <option value="6000sqft">6000sqft</option>
               <option value="5000sqft">5000sqft</option>
                <option value="4800sqft">4800sqft</option>
@@ -37,8 +40,36 @@
                         <option value="3500sqft">3500sqft</option>
                           <option value="3200 Sqft">3200sqft</option>
                             <option value="2000sqft">2000sqft</option>
-
           </select>
+
+    <select id="Typelist "onchange="filter1(event)">
+      <option selected value="Type">Type</option>
+      <option value=" Rent">Rent</option>
+       <option value="Sale"> Sale</option>
+      
+
+   </select>
+   
+        <select id="Dayslist "onchange="filter2(event)">
+                 <option selected value="Days">Days</option>
+                 <option value="1 Day ago">1 Day ago</option>
+                  <option value="2 Days ago">2 Days ago</option>
+                   <option value="3 Days ago">3 Days ago</option>
+                    <option value="4 Days ago">4 Days ago</option>
+                        <option value="5 Days ago">5 Days ago</option>
+                            <option value="6 Days ago">6 Days ago</option>
+                              <option value="7 Days ago">7 Days ago</option>
+              </select>
+
+              <select id="Roomslist "onchange="filter3(event)">
+                <option selected value="Rooms">Rooms</option>
+                <option value="1 Bed">1 Bed</option>
+                 <option value="2 Beds">2 Beds</option>
+                  <option value="3 Beds">3 Beds</option>
+                   <option value="4 Beds">4 Beds</option>
+                       <option value="5 Beds">5 Beds</option>
+                           <option value="6 Beds">6 Beds</option>
+             </select>
       <!-- Modal -->
       <div
         class="modal fade"
@@ -182,7 +213,7 @@
       </div>
     </div>
     </div>
- <table class="table">
+ <table class="table container-fluid">
   <thead>
     <tr>
 
@@ -196,13 +227,13 @@
       <th scope="col">Img</th>
       <th scope="col">Price</th>
       <th scope="col">Listed</th>
-      <th scope="col">Add</th>
+    
        <th scope="col">Delete</th>
        <th scope="col">Edit </th>
     </tr>
     
   </thead>
-  <tbody class="table-group-divider" id="TableItems">
+  <tbody  id="TableItems">
   </tbody>
 </table>
     <script

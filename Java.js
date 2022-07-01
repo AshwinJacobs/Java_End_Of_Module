@@ -174,7 +174,6 @@ function showHouses(houses) {
     <div class="content">
     <div class="price">
     <h3>${home.Price}</h3>
-    <a href="#" class="fas fa-heart"></a>
     <a href="#" class="fas fa-envelope"></a>
     <a href="#" class="fas fa-phone"></a>
     </div>
@@ -250,7 +249,7 @@ showHouses(houses);
 
 function filter(event) {
   let FilterOption = event.target.value;
-  if (FilterOption !== "all") {
+  if (FilterOption !== "Size") {
     // console.log(FilterOption);
     document.querySelector("#list").innerHTML = "";
     let specificView = houses.filter((home) => home.size === FilterOption);
